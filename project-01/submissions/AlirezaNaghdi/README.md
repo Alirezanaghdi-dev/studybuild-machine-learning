@@ -97,6 +97,7 @@ credit-risk-project/
 │   └── model.py
 ├── terminal_output/
 │   └── terminal_output.txt
+└── .gitignore
 └── README.md
 └── requirements.txt
 ```
