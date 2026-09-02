@@ -97,7 +97,9 @@ credit-risk-project/
 │   └── model.py
 ├── terminal_output/
 │   └── terminal_output.txt
+└── .gitignore
 └── README.md
+└── requirements.txt
 ```
 
 The Python file uses paths relative to the `src` directory. Run the program from inside `src` so the dataset and output paths resolve correctly.
