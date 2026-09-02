@@ -1,0 +1,1144 @@
+
+=== Raw Dataset Shape ===
+(30000, 25)
+
+=== Raw Missing Values ===
+ID                            0
+LIMIT_BAL                     0
+SEX                           0
+EDUCATION                     0
+MARRIAGE                      0
+AGE                           0
+PAY_0                         0
+PAY_2                         0
+PAY_3                         0
+PAY_4                         0
+PAY_5                         0
+PAY_6                         0
+BILL_AMT1                     0
+BILL_AMT2                     0
+BILL_AMT3                     0
+BILL_AMT4                     0
+BILL_AMT5                     0
+BILL_AMT6                     0
+PAY_AMT1                      0
+PAY_AMT2                      0
+PAY_AMT3                      0
+PAY_AMT4                      0
+PAY_AMT5                      0
+PAY_AMT6                      0
+default payment next month    0
+dtype: int64
+
+=== Raw Duplicate Rows ===
+0
+
+ID column name: ID
+
+=== Raw Duplicate IDs ===
+0
+
+=== Data Types ===
+ID                            int64
+LIMIT_BAL                     int64
+SEX                           int64
+EDUCATION                     int64
+MARRIAGE                      int64
+AGE                           int64
+PAY_0                         int64
+PAY_2                         int64
+PAY_3                         int64
+PAY_4                         int64
+PAY_5                         int64
+PAY_6                         int64
+BILL_AMT1                     int64
+BILL_AMT2                     int64
+BILL_AMT3                     int64
+BILL_AMT4                     int64
+BILL_AMT5                     int64
+BILL_AMT6                     int64
+PAY_AMT1                      int64
+PAY_AMT2                      int64
+PAY_AMT3                      int64
+PAY_AMT4                      int64
+PAY_AMT5                      int64
+PAY_AMT6                      int64
+default payment next month    int64
+dtype: object
+
+=== Duplicate Check with ID as Index ===
+Duplicated rows excluding ID: 35
+Duplicated index values: 0
+
+=== Clean Dataset Shape ===
+(30000, 25)
+None
+
+=== SEX Values ===
+ SEX SEX_name  count
+   1     Male  11888
+   2   Female  18112
+
+=== EDUCATION Values Before Cleaning ===
+EDUCATION
+0       14
+1    10585
+2    14030
+3     4917
+4      123
+5      280
+6       51
+Name: count, dtype: int64
+
+=== EDUCATION Values After Cleaning ===
+ EDUCATION  education_name  count
+         0         Unknown    345
+         1 Graduate School  10585
+         2      University  14030
+         3     High School   4917
+         4          Others    123
+
+=== MARRIAGE Values ===
+ MARRIAGE marriage_name  count
+        0       Unknown     54
+        1       Married  13659
+        2        Single  15964
+        3        Others    323
+
+=== Target Values ===
+ TARGET target_name  count
+      0 Non-default  23364
+      1     Default   6636
+
+=== Repayment Status Encodings ===
+-2: Undocumented (-2)
+-1: Pay Duly
+0: Undocumented (0)
+1: 1-Month Delay
+2: 2-Month Delay
+3: 3-Month Delay
+4: 4-Month Delay
+5: 5-Month Delay
+6: 6-Month Delay
+7: 7-Month Delay
+8: 8-Month Delay
+9: 9+ Months Delay
+
+=== AGE Range ===
+21 79
+
+=== LIMIT_BAL Range ===
+10000 1000000
+
+=== Unique Values in Categorical Columns ===
+SEX: ['Female' 'Male']
+EDUCATION: ['University' 'Graduate School' 'High School' 'Unknown' 'Others']
+MARRIAGE: ['Married' 'Single' 'Others' 'Unknown']
+PAY_0: [ 2 -1  0 -2  1  3  4  8  7  5  6]
+PAY_2: [ 2  0 -1 -2  3  5  7  4  1  6  8]
+PAY_3: [-1  0  2 -2  3  4  6  7  1  5  8]
+PAY_4: [-1  0 -2  2  3  4  5  7  6  1  8]
+PAY_5: [-2  0 -1  2  3  5  4  7  8  6]
+PAY_6: [-2  2  0 -1  3  6  4  7  8  5]
+default_label: ['Default' 'Non-default']
+
+=== Analysis DataFrame Info ===
+None
+
+=== Comprehensive Statistical Overview ===
+                              count           mean            std       min       25%       50%        75%        max   Skewness     Kurtosis
+ID                          30000.0   15000.500000    8660.398374       1.0   7500.75   15000.5   22500.25    30000.0   0.000000    -1.200000
+LIMIT_BAL                   30000.0  167484.322667  129747.661567   10000.0  50000.00  140000.0  240000.00  1000000.0   0.992867     0.536263
+SEX                         30000.0       1.603733       0.489129       1.0      1.00       2.0       2.00        2.0  -0.424183    -1.820190
+EDUCATION                   30000.0       1.796267       0.733242       0.0      1.00       2.0       2.00        4.0   0.225580    -0.567090
+MARRIAGE                    30000.0       1.551867       0.521970       0.0      1.00       2.0       2.00        3.0  -0.018742    -1.363368
+AGE                         30000.0      35.485500       9.217904      21.0     28.00      34.0      41.00       79.0   0.732246     0.044303
+PAY_0                       30000.0      -0.016700       1.123802      -2.0     -1.00       0.0       0.00        8.0   0.731975     2.720715
+PAY_2                       30000.0      -0.133767       1.197186      -2.0     -1.00       0.0       0.00        8.0   0.790565     1.570418
+PAY_3                       30000.0      -0.166200       1.196868      -2.0     -1.00       0.0       0.00        8.0   0.840682     2.084436
+PAY_4                       30000.0      -0.220667       1.169139      -2.0     -1.00       0.0       0.00        8.0   0.999629     3.496983
+PAY_5                       30000.0      -0.266200       1.133187      -2.0     -1.00       0.0       0.00        8.0   1.008197     3.989748
+PAY_6                       30000.0      -0.291100       1.149988      -2.0     -1.00       0.0       0.00        8.0   0.948029     3.426534
+BILL_AMT1                   30000.0   51223.330900   73635.860576 -165580.0   3558.75   22381.5   67091.00   964511.0   2.663861     9.806289
+BILL_AMT2                   30000.0   49179.075167   71173.768783  -69777.0   2984.75   21200.0   64006.25   983931.0   2.705221    10.302946
+BILL_AMT3                   30000.0   47013.154800   69349.387427 -157264.0   2666.25   20088.5   60164.75  1664089.0   3.087830    19.783255
+BILL_AMT4                   30000.0   43262.948967   64332.856134 -170000.0   2326.75   19052.0   54506.00   891586.0   2.821965    11.309325
+BILL_AMT5                   30000.0   40311.400967   60797.155770  -81334.0   1763.00   18104.5   50190.50   927171.0   2.876380    12.305881
+BILL_AMT6                   30000.0   38871.760400   59554.107537 -339603.0   1256.00   17071.0   49198.25   961664.0   2.846645    12.270705
+PAY_AMT1                    30000.0    5663.580500   16563.280354       0.0   1000.00    2100.0    5006.00   873552.0  14.668364   415.254743
+PAY_AMT2                    30000.0    5921.163500   23040.870402       0.0    833.00    2009.0    5000.00  1684259.0  30.453817  1641.631911
+PAY_AMT3                    30000.0    5225.681500   17606.961470       0.0    390.00    1800.0    4505.00   896040.0  17.216635   564.311229
+PAY_AMT4                    30000.0    4826.076867   15666.159744       0.0    296.00    1500.0    4013.25   621000.0  12.904985   277.333768
+PAY_AMT5                    30000.0    4799.387633   15278.305679       0.0    252.50    1500.0    4031.50   426529.0  11.127417   180.063940
+PAY_AMT6                    30000.0    5215.502567   17777.465775       0.0    117.75    1500.0    4000.00   528666.0  10.640727   167.161430
+default payment next month  30000.0       0.221200       0.415062       0.0      0.00       0.0       0.00        1.0   1.343504    -0.195010
+
+=== Customers by Age Group ===
+age_group
+(20.999, 27.0]    6604
+(27.0, 31.0]      5626
+(31.0, 37.0]      6728
+(37.0, 43.0]      5056
+(43.0, 79.0]      5986
+Name: count, dtype: int64
+
+=== Lowest Mean Credit Limits by SEX ===
+   SEX  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Male           11888   163519.825034          130000.0                 4182           0.351783                0.918153
+Female           18112   170086.462014          150000.0                 5887           0.325033                0.779097
+
+=== Highest Mean Credit Limits by SEX ===
+   SEX  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Male           11888   163519.825034          130000.0                 4182           0.351783                0.918153
+Female           18112   170086.462014          150000.0                 5887           0.325033                0.779097
+
+=== Lowest Mean Credit Limits by MARRIAGE ===
+MARRIAGE  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Others             323    98080.495356           60000.0                  119           0.368421                0.860681
+ Unknown              54   132962.962963          115000.0                   18           0.333333                1.000000
+  Single           15964   156413.660737          130000.0                 5344           0.334753                0.821035
+ Married           13659   182200.893184          160000.0                 4588           0.335896                0.848305
+
+=== Highest Mean Credit Limits by MARRIAGE ===
+MARRIAGE  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Others             323    98080.495356           60000.0                  119           0.368421                0.860681
+ Unknown              54   132962.962963          115000.0                   18           0.333333                1.000000
+  Single           15964   156413.660737          130000.0                 5344           0.334753                0.821035
+ Married           13659   182200.893184          160000.0                 4588           0.335896                0.848305
+
+=== Lowest Mean Credit Limits by age_group ===
+     age_group  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+(20.999, 27.0]            6604   100823.743186           70000.0                 2529           0.382950                0.980769
+  (43.0, 79.0]            5986   171288.339459          140000.0                 2040           0.340795                0.864684
+  (27.0, 31.0]            5626   182915.037327          160000.0                 1829           0.325098                0.793992
+  (37.0, 43.0]            5056   191690.601266          170000.0                 1581           0.312698                0.766416
+  (31.0, 37.0]            6728   198437.871581          180000.0                 2090           0.310642                0.747771
+
+=== Highest Mean Credit Limits by age_group ===
+     age_group  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+(20.999, 27.0]            6604   100823.743186           70000.0                 2529           0.382950                0.980769
+  (43.0, 79.0]            5986   171288.339459          140000.0                 2040           0.340795                0.864684
+  (27.0, 31.0]            5626   182915.037327          160000.0                 1829           0.325098                0.793992
+  (37.0, 43.0]            5056   191690.601266          170000.0                 1581           0.312698                0.766416
+  (31.0, 37.0]            6728   198437.871581          180000.0                 2090           0.310642                0.747771
+
+=== Lowest Mean Credit Limits by EDUCATION ===
+      EDUCATION  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+    High School            4917   126550.270490           80000.0                 1866           0.379500                0.991865
+     University           14030   147062.437634          110000.0                 4897           0.349038                0.926016
+        Unknown             345   167205.797101          150000.0                   56           0.162319                0.249275
+Graduate School           10585   212956.069910          200000.0                 3230           0.305149                0.665848
+         Others             123   220894.308943          200000.0                   20           0.162602                0.186992
+
+=== Highest Mean Credit Limits by EDUCATION ===
+      EDUCATION  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+    High School            4917   126550.270490           80000.0                 1866           0.379500                0.991865
+     University           14030   147062.437634          110000.0                 4897           0.349038                0.926016
+        Unknown             345   167205.797101          150000.0                   56           0.162319                0.249275
+Graduate School           10585   212956.069910          200000.0                 3230           0.305149                0.665848
+         Others             123   220894.308943          200000.0                   20           0.162602                0.186992
+
+=== Combined Customer Group Summary: Lowest Mean Credit Limits ===
+   SEX MARRIAGE      age_group   EDUCATION  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Male   Others   (43.0, 79.0]  University              22    46363.636364           50000.0                    9           0.409091                0.909091
+  Male   Single (20.999, 27.0] High School             248    59314.516129           50000.0                  112           0.451613                1.141129
+  Male   Others   (43.0, 79.0] High School              28    64285.714286           50000.0                   12           0.428571                1.071429
+  Male   Single (20.999, 27.0]     Unknown              21    69047.619048           50000.0                    5           0.238095                0.571429
+  Male   Single (20.999, 27.0]  University            1073    72945.013979           50000.0                  489           0.455732                1.310345
+Female   Others   (43.0, 79.0] High School              40    77500.000000           50000.0                   19           0.475000                0.975000
+Female   Others   (43.0, 79.0]  University              41    78292.682927           50000.0                   20           0.487805                1.390244
+Female  Married (20.999, 27.0] High School             122    84426.229508           55000.0                   61           0.500000                1.295082
+  Male  Married (20.999, 27.0] High School              25    85600.000000           50000.0                   10           0.400000                1.000000
+  Male  Married (20.999, 27.0]  University             104    85673.076923           50000.0                   34           0.326923                1.230769
+
+=== Combined Customer Group Summary: Highest Mean Credit Limits ===
+   SEX MARRIAGE    age_group       EDUCATION  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Male   Single (31.0, 37.0] Graduate School             736   238899.456522          220000.0                  242           0.328804                0.796196
+Female   Single (31.0, 37.0] Graduate School             830   246048.192771          225000.0                  230           0.277108                0.538554
+Female   Single (43.0, 79.0] Graduate School             169   246568.047337          230000.0                   52           0.307692                0.751479
+Female  Married (37.0, 43.0] Graduate School             566   248162.544170          230000.0                  178           0.314488                0.643110
+Female  Married (31.0, 37.0] Graduate School             682   250571.847507          230000.0                  182           0.266862                0.498534
+  Male  Married (31.0, 37.0] Graduate School             396   256818.181818          240000.0                  115           0.290404                0.580808
+Female   Single (37.0, 43.0] Graduate School             260   260653.846154          230000.0                   57           0.219231                0.469231
+Female  Married (43.0, 79.0] Graduate School             482   261846.473029          235000.0                  145           0.300830                0.601660
+  Male  Married (37.0, 43.0] Graduate School             535   266485.981308          240000.0                  187           0.349533                0.728972
+  Male  Married (43.0, 79.0] Graduate School             659   271987.860395          250000.0                  193           0.292868                0.783005
+
+=== Marital Status and Sex Summary ===
+MARRIAGE    SEX  customer_count  mean_limit_bal  median_limit_bal  late_customer_count  late_payment_rate  avg_late_payment_count
+  Others   Male             131    92900.763359           50000.0                   41           0.312977                0.725191
+  Others Female             192   101614.583333           60000.0                   78           0.406250                0.953125
+ Unknown Female              40   134000.000000          115000.0                   15           0.375000                0.975000
+  Single   Male            6553   143192.076911          100000.0                 2364           0.360751                0.930719
+  Single Female            9411   165620.019127          140000.0                 2980           0.316651                0.744661
+ Married Female            8469   176772.464281          150000.0                 2814           0.332271                0.812493
+ Married   Male            5190   191058.959538          170000.0                 1774           0.341811                0.906744
+
+=== PAY_0: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_0                              
+-2                5.50        10.25
+-1               14.38        20.25
+ 0               28.45        54.99
+ 1               18.87        10.43
+ 2               27.79         3.52
+ 3                3.68         0.33
+ 4                0.78         0.10
+ 5                0.20         0.06
+ 6                0.09         0.02
+ 7                0.11         0.01
+ 8                0.17         0.03
+
+=== PAY_2: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_2                              
+-2               10.41        13.23
+-1               14.56        21.76
+ 0               37.72        56.61
+ 1                0.08         0.10
+ 2               32.91         7.46
+ 3                3.03         0.54
+ 4                0.75         0.21
+ 5                0.23         0.04
+ 6                0.14         0.01
+ 7                0.18         0.03
+ 8                0.00         0.00
+
+=== PAY_3: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_3                              
+-2               11.41        14.24
+-1               13.95        21.45
+ 0               41.46        55.70
+ 1                0.02         0.01
+ 2               29.67         7.92
+ 3                2.08         0.44
+ 4                0.66         0.14
+ 5                0.18         0.04
+ 6                0.21         0.04
+ 7                0.33         0.02
+ 8                0.03         0.00
+
+=== PAY_4: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_4                              
+-2               12.61        15.03
+-1               13.62        20.47
+ 0               45.45        57.52
+ 1                0.02         0.00
+ 2               24.91         6.45
+ 3                1.66         0.30
+ 4                0.69         0.10
+ 5                0.27         0.07
+ 6                0.03         0.01
+ 7                0.72         0.04
+ 8                0.02         0.00
+
+=== PAY_5: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_5                              
+-2               13.49        15.63
+-1               13.52        19.87
+ 0               48.15        58.86
+ 2               21.44         5.15
+ 3                1.70         0.28
+ 4                0.77         0.14
+ 5                0.15         0.03
+ 6                0.05         0.00
+ 7                0.72         0.04
+ 8                0.02         0.00
+
+=== PAY_6: Distribution within Default Groups (%) ===
+default_label  Default  Non-default
+PAY_6                              
+-2               14.78        16.75
+-1               14.69        20.39
+ 0               46.25        56.57
+ 2               21.11         5.84
+ 3                1.78         0.28
+ 4                0.47         0.08
+ 5                0.11         0.03
+ 6                0.21         0.02
+ 7                0.57         0.03
+ 8                0.03         0.00
+
+=== Late Payment Summary by Default Status ===
+default_label  late_payment_rate  avg_late_payment_count
+      Default           0.648282                1.996082
+  Non-default           0.246833                0.504194
+
+=== Bill Amount Summary by Default Status ===
+                  BILL_AMT1              BILL_AMT2              BILL_AMT3              BILL_AMT4              BILL_AMT5              BILL_AMT6         
+                       mean   median          mean   median          mean   median          mean   median          mean   median          mean   median
+default_label                                                                                                                                          
+Default        48509.162297  20185.0  47283.617842  20300.5  45181.598855  19834.5  42036.950573  19119.5  39540.190476  18478.5  38271.435503  18028.5
+Non-default    51994.227273  23119.5  49717.435670  21660.5  47533.365605  20202.5  43611.165254  19000.0  40530.445343  17998.0  39042.268704  16679.0
+
+=== Payment Amount Summary by Default Status ===
+                  PAY_AMT1             PAY_AMT2             PAY_AMT3             PAY_AMT4             PAY_AMT5             PAY_AMT6        
+                      mean  median         mean  median         mean  median         mean  median         mean  median         mean  median
+default_label                                                                                                                              
+Default        3397.044153  1636.0  3388.649638  1533.5  3367.351567  1222.0  3155.626733  1000.0  3219.139542  1000.0  3441.482068  1000.0
+Non-default    6307.337357  2459.5  6640.465074  2247.5  5753.496833  2000.0  5300.529319  1734.0  5248.220296  1765.0  5719.371769  1706.0
+
+=== PAY Separation ===
+feature  Non-default   Default  difference
+  PAY_0    14.505222 51.672694   37.167473
+  PAY_2     8.397535 37.311634   28.914099
+  PAY_3     8.607259 33.182640   24.575381
+  PAY_4     6.980825 28.315250   21.334425
+  PAY_5     5.645437 24.849307   19.203869
+  PAY_6     6.283171 24.276673   17.993502
+
+=== Payment Amount Separation ===
+target_numeric  Non-default  Default  difference
+PAY_AMT1             2459.5   1636.0       823.5
+PAY_AMT3             2000.0   1222.0       778.0
+PAY_AMT5             1765.0   1000.0       765.0
+PAY_AMT4             1734.0   1000.0       734.0
+PAY_AMT2             2247.5   1533.5       714.0
+PAY_AMT6             1706.0   1000.0       706.0
+
+=== Bill Amount Separation ===
+target_numeric  Non-default  Default  difference
+BILL_AMT1           23119.5  20185.0      2934.5
+BILL_AMT2           21660.5  20300.5      1360.0
+BILL_AMT6           16679.0  18028.5      1349.5
+BILL_AMT5           17998.0  18478.5       480.5
+BILL_AMT3           20202.5  19834.5       368.0
+BILL_AMT4           19000.0  19119.5       119.5
+
+=== Automatically Calculated Repayment Weights ===
+PAY_0: 0.3172
+PAY_2: 0.1762
+PAY_3: 0.1498
+PAY_4: 0.1300
+PAY_5: 0.1171
+PAY_6: 0.1097
+
+=== Weighted Repayment Ratio Distribution ===
+count    30000.000000
+mean         0.233383
+std          0.262401
+min          0.000000
+25%          0.041883
+50%          0.095677
+75%          0.372176
+max          1.000000
+Name: repayment_ratio, dtype: float64
+
+=== Repayment Summary by SEX (Customer Count >= 50) ===
+   SEX  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+Female           18112              0.242772                0.104351      0.207763           0.325033           121573.0           14789.0      230480.557420              96396.0         1.897066           1.089908
+  Male           11888              0.219077                0.085631      0.241672           0.351783           132236.0           13608.0      249986.919835             107956.0         2.169031           1.870965
+
+=== Repayment Summary by MARRIAGE (Customer Count >= 50) ===
+MARRIAGE  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+ Unknown              54              0.304481                0.199737      0.092593           0.333333            73899.5            7705.5       95328.481481              27561.5         1.235616           0.426590
+  Single           15964              0.224931                0.097960      0.209283           0.334753           126737.0           14364.0      231850.742170             104096.0         2.071061           1.578825
+ Married           13659              0.244023                0.092322      0.234717           0.335896           126448.0           14568.0      247714.468922              99236.0         1.919082           1.161033
+  Others             323              0.189231                0.080884      0.260062           0.368421           117443.0           10000.0      174499.820433             105275.0         2.486736           2.525500
+
+=== Repayment Summary by age_group (Customer Count >= 50) ===
+     age_group  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+  (31.0, 37.0]            6728              0.251129                0.116062      0.205113           0.310642           127213.5           17209.5      253008.832640              96995.5         1.787324           0.830995
+  (27.0, 31.0]            5626              0.242406                0.110654      0.195876           0.325098           139649.0           17313.0      254721.595094             106619.5         1.825762           0.990088
+  (37.0, 43.0]            5056              0.253509                0.103832      0.217563           0.312698           122627.5           16000.0      254683.225079              94205.0         1.860754           1.042664
+  (43.0, 79.0]            5986              0.236053                0.084364      0.243234           0.340795           122602.0           13000.0      248651.629469              99706.0         2.070112           1.647615
+(20.999, 27.0]            6604              0.189786                0.080965      0.241975           0.382950           121113.0           11095.5      186991.853271             107070.5         2.430129           2.310160
+
+=== Repayment Summary by EDUCATION (Customer Count >= 50) ===
+      EDUCATION  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+         Others             123              0.303689                0.233850      0.056911           0.162602            73235.0           20500.0      215093.569106              14336.0         1.302788           0.059240
+Graduate School           10585              0.290456                0.168267      0.192348           0.305149            91078.0           17929.0      225162.436183              42788.0         1.438561           0.265761
+        Unknown             345              0.196959                0.079105      0.075362           0.162319           198540.0           20178.0      332533.779710             174621.0         2.386338           2.419850
+     University           14030              0.202139                0.074842      0.237349           0.349038           150069.5           13400.0      252108.069209             125859.0         2.302788           2.082722
+    High School            4917              0.200465                0.074475      0.251576           0.379500           135781.0           11600.0      220603.436648             113705.0         2.364505           2.271433
+
+=== Combined Repayment Summary ===
+   SEX MARRIAGE      age_group       EDUCATION  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+Female   Others   (37.0, 43.0] Graduate School               1              0.840934                0.840934      0.000000           0.000000          1092552.0         3764066.0      -2.671514e+06           -2671514.0        -7.857394          -7.857394
+Female   Others   (31.0, 37.0]          Others               1              0.722068                0.722068      0.000000           0.000000            71382.0           48406.0       2.297600e+04              22976.0         0.071800           0.071800
+Female  Unknown   (27.0, 31.0] Graduate School               1              0.711240                0.711240      0.000000           0.000000           334990.0          127169.0       2.078210e+05             207821.0         0.989624           0.989624
+  Male   Others   (27.0, 31.0] Graduate School               2              0.672196                0.672196      0.000000           0.500000            12717.0           27672.5      -1.495550e+04             -14955.5        -0.028549          -0.028549
+Female   Single   (43.0, 79.0]          Others               2              0.638528                0.638528      0.000000           1.000000             5571.5            4977.0       5.945000e+02                594.5         0.005203           0.005203
+Female  Unknown   (31.0, 37.0] Graduate School               1              0.607258                0.607258      0.000000           0.000000             8474.0            5588.0       2.886000e+03               2886.0         0.013118           0.013118
+Female  Unknown   (31.0, 37.0]     High School               9              0.445251                0.576654      0.000000           0.444444            25034.0            3958.0       2.815711e+04               5657.0         0.386125           0.047283
+Female  Married   (31.0, 37.0]          Others              12              0.413701                0.550101      0.000000           0.000000            66176.0           41211.0       9.894525e+04               5749.0         0.660117           0.033944
+  Male  Unknown (20.999, 27.0]     High School               3              0.456258                0.527326      0.666667           0.333333           132448.0            9800.0       9.318967e+04              46956.0         1.237736           0.391300
+  Male  Unknown   (31.0, 37.0] Graduate School               1              0.509121                0.509121      0.000000           0.000000             3297.0            3757.0      -4.600000e+02               -460.0        -0.001533          -0.001533
+  Male   Others   (31.0, 37.0]     High School               1              0.478822                0.478822      0.000000           0.000000            77385.0           60768.0       1.661700e+04              16617.0         0.184633           0.184633
+Female   Single   (37.0, 43.0]         Unknown               8              0.412530                0.471215      0.250000           0.125000           124627.0           19804.0       2.929830e+05             104158.0         1.938692           1.534632
+Female   Others   (43.0, 79.0] Graduate School               8              0.423031                0.457907      0.000000           0.500000           135898.5            8929.0       1.042769e+05              93314.5         1.019485           0.329736
+  Male  Married (20.999, 27.0]         Unknown               2              0.417626                0.417626      0.000000           0.000000            88846.5           24954.0       6.389250e+04              63892.5         0.798656           0.798656
+  Male   Others   (31.0, 37.0] Graduate School               4              0.403843                0.400933      0.000000           0.500000           107816.0            8629.0       1.059638e+05              97983.5         2.126453           1.957083
+Female   Others   (43.0, 79.0]          Others               1              0.376535                0.376535      0.000000           1.000000            16504.0           25602.0      -9.098000e+03              -9098.0        -0.060653          -0.060653
+  Male  Married   (31.0, 37.0]          Others               4              0.388791                0.364473      0.000000           0.000000           101608.0           23149.5       3.135722e+05              82559.5         1.953717           0.272829
+  Male   Single   (27.0, 31.0]         Unknown               8              0.353923                0.364364      0.125000           0.375000           174113.5           21945.5       3.697738e+05             115098.0         1.339347           0.701330
+  Male   Single (20.999, 27.0]          Others               9              0.328514                0.359086      0.111111           0.111111            54212.0            7504.0       1.655084e+05              34103.0         0.981366           0.213144
+  Male   Single   (31.0, 37.0]          Others               3              0.416071                0.342541      0.000000           0.333333            22100.0           16021.0       1.725353e+05               7959.0         1.135489           0.018950
+  Male  Married   (43.0, 79.0]          Others               7              0.322101                0.340603      0.142857           0.285714           299127.0           28785.0       2.162060e+05             283794.0         1.246270           1.361366
+Female  Unknown   (31.0, 37.0]      University               1              0.337618                0.337618      0.000000           0.000000           163860.0           40628.0       1.232320e+05             123232.0         0.770200           0.770200
+  Male   Others (20.999, 27.0]      University               5              0.286368                0.330707      0.200000           0.000000            33051.0           16793.0       1.175576e+05              25200.0         0.969796           0.609100
+  Male  Unknown   (37.0, 43.0]      University               1              0.317176                0.317176      0.000000           0.000000              428.0             252.0       1.760000e+02                176.0         0.000489           0.000489
+  Male   Others (20.999, 27.0] Graduate School               2              0.301886                0.301886      0.500000           0.500000            90898.0           12576.0       7.832200e+04              78322.0         2.575920           2.575920
+Female   Single   (27.0, 31.0]          Others              12              0.340206                0.291027      0.083333           0.166667            62846.0           36155.0       2.087380e+05              13035.0         0.928970           0.053112
+Female   Single   (37.0, 43.0]          Others               6              0.379477                0.290810      0.000000           0.000000            58028.0           17259.5       2.105235e+05              12512.5         1.082870           0.053271
+  Male  Unknown   (31.0, 37.0]     High School               2              0.283900                0.283900      0.000000           0.500000           227001.0           83082.0       1.439190e+05             143919.0         2.060499           2.060499
+Female  Unknown   (37.0, 43.0]      University               1              0.282315                0.282315      1.000000           0.000000            12590.0            2351.0       1.023900e+04              10239.0         0.063994           0.063994
+  Male   Others (20.999, 27.0]          Others               1              0.281329                0.281329      0.000000           0.000000            11611.0            7147.0       4.464000e+03               4464.0         0.029760           0.029760
+Female  Married   (31.0, 37.0] Graduate School             682              0.341430                0.270221      0.187683           0.266862            58520.5           20155.5       1.934478e+05               8480.5         0.981025           0.034668
+  Male  Married   (27.0, 31.0]          Others               1              0.269106                0.269106      0.000000           0.000000           523695.0           42357.0       4.813380e+05             481338.0         2.831400           2.831400
+Female   Single   (31.0, 37.0]          Others               6              0.306783                0.268097      0.000000           0.000000           105700.5           40505.5       3.363433e+05              70307.5         0.602113           0.273876
+Female  Married   (37.0, 43.0] Graduate School             566              0.345255                0.267750      0.187279           0.314488            47135.5           19458.0       1.938682e+05               7656.0         0.926690           0.033498
+Female   Single   (31.0, 37.0] Graduate School             830              0.329982                0.254627      0.172289           0.277108            70960.5           21061.0       2.015050e+05              13479.0         1.009278           0.062953
+Female  Married   (37.0, 43.0]         Unknown              25              0.330642                0.250437      0.080000           0.080000           158759.0           31621.0       3.310201e+05              37479.0         1.807237           0.162952
+Female  Married   (43.0, 79.0] Graduate School             482              0.333871                0.249320      0.190871           0.300830            43243.5           20100.0       2.152833e+05               4277.5         1.038878           0.019040
+  Male  Unknown   (43.0, 79.0]     High School               4              0.333165                0.236151      0.000000           0.000000            76084.0           18874.0       1.088250e+05              66716.5         1.207208           1.334330
+Female   Others (20.999, 27.0]      University               8              0.267891                0.232080      0.125000           0.375000            89592.5           23358.5       9.276350e+04              46359.5         1.576854           1.016271
+Female  Unknown   (37.0, 43.0]     High School               4              0.272974                0.222975      0.250000           0.500000            55040.5           12004.5       8.773250e+04              41920.5         1.066077           0.467853
+Female  Unknown   (43.0, 79.0]     High School              10              0.303604                0.222002      0.100000           0.300000            21236.5            5412.5       6.268930e+04               3251.5         0.849889           0.021335
+Female  Unknown (20.999, 27.0]     High School               4              0.245739                0.211661      0.000000           0.250000           102559.0           28393.5       1.414232e+05              98332.0         2.128759           1.676834
+  Male  Married   (37.0, 43.0] Graduate School             535              0.317464                0.208698      0.228037           0.349533            65568.0           20398.0       2.433847e+05              14222.0         1.185743           0.050937
+Female   Single   (27.0, 31.0] Graduate School            1398              0.306483                0.208309      0.159514           0.278970            85248.0           20106.5       2.124489e+05              39950.0         1.250920           0.208289
+Female   Single   (27.0, 31.0]         Unknown              14              0.261927                0.204994      0.071429           0.142857           165516.5           23352.5       1.890659e+05             127567.5         0.805376           0.686510
+Female   Single   (37.0, 43.0] Graduate School             260              0.301474                0.199196      0.176923           0.219231            60747.5           19502.0       2.283825e+05               9783.0         1.042574           0.034399
+Female   Others   (27.0, 31.0] Graduate School               4              0.190470                0.188600      0.250000           0.500000            13132.0           13494.0       1.282178e+05               1842.5         0.441548           0.012283
+Female  Married   (43.0, 79.0]          Others               8              0.239684                0.188036      0.125000           0.375000             7303.5            4343.0       2.479758e+05               3197.0         1.172991           0.011190
+Female   Others   (27.0, 31.0]     High School               2              0.182253                0.182253      0.000000           0.000000           189107.5            8256.0       1.808515e+05             180851.5         2.260644           2.260644
+  Male  Married   (31.0, 37.0] Graduate School             396              0.293610                0.176995      0.222222           0.290404           108962.5           21225.5       2.699602e+05              40319.0         1.371126           0.199369
+  Male   Others (20.999, 27.0]     High School               2              0.175976                0.175976      0.500000           0.000000            83174.5           15961.5       6.721300e+04              67213.0         4.630700           4.630700
+  Male  Married   (37.0, 43.0]          Others               6              0.240713                0.168906      0.166667           0.166667           267458.5           32743.5       3.360125e+05             248852.0         2.150935           1.785450
+  Male   Single   (27.0, 31.0] Graduate School             880              0.281184                0.166030      0.180682           0.317045           113464.0           19550.0       2.471949e+05              70293.5         1.573334           0.591100
+Female   Single   (43.0, 79.0] Graduate School             169              0.269493                0.160763      0.207101           0.307692           100439.0           23700.0       2.758293e+05              29990.0         1.507750           0.122992
+Female  Married (20.999, 27.0] Graduate School              70              0.266011                0.156476      0.228571           0.400000            96023.0           12540.0       1.867616e+05              60895.0         1.909369           1.300835
+Female   Others   (37.0, 43.0]     High School              17              0.253966                0.153292      0.117647           0.235294           117896.0           10326.0       1.056637e+05             104779.0         1.937786           2.095580
+Female  Unknown (20.999, 27.0]      University               1              0.150996                0.150996      0.000000           0.000000           228450.0           37450.0       1.910000e+05             191000.0         1.123529           1.123529
+  Male  Married   (43.0, 79.0] Graduate School             659              0.315127                0.150805      0.233687           0.292868           105313.0           19539.0       2.978469e+05              27102.0         1.408113           0.081829
+Female   Others   (31.0, 37.0] Graduate School               4              0.161659                0.150143      0.000000           0.500000           310863.0           26741.0       2.710960e+05             259847.5         1.964984           1.363201
+Female  Married   (37.0, 43.0]          Others               7              0.211027                0.149799      0.000000           0.285714             4587.0            7663.0       1.631800e+05               -108.0         0.417350          -0.000675
+Female   Single (20.999, 27.0]          Others              19              0.255724                0.147301      0.052632           0.105263           109574.0           17585.0       2.114205e+05              91989.0         2.123011           0.876636
+Female  Married   (27.0, 31.0] Graduate School             232              0.264797                0.147293      0.159483           0.340517            93973.0           20671.5       2.434566e+05              39624.0         1.372618           0.218684
+Female  Married   (31.0, 37.0]         Unknown              34              0.223350                0.146758      0.058824           0.147059           156280.5           22627.0       2.616574e+05             120870.5         1.443561           0.726523
+  Male  Married   (31.0, 37.0]         Unknown              14              0.267811                0.131258      0.071429           0.000000           282386.0           23332.0       3.550461e+05             226597.5         1.865516           0.965552
+  Male  Married   (27.0, 31.0] Graduate School              85              0.247798                0.131086      0.247059           0.317647           168250.0           21000.0       2.923195e+05              86981.0         1.620912           0.874646
+  Male   Single   (31.0, 37.0] Graduate School             736              0.259571                0.131015      0.201087           0.328804           136217.5           21078.0       2.716680e+05              97062.0         1.564786           0.556856
+Female  Unknown   (43.0, 79.0] Graduate School               1              0.130044                0.130044      0.000000           1.000000            14251.0            4881.0       9.370000e+03               9370.0         0.187400           0.187400
+Female   Single   (27.0, 31.0]     High School             158              0.254478                0.125291      0.151899           0.341772           101440.5           17073.5       2.516251e+05              91802.0         1.810612           1.074302
+Female   Others   (31.0, 37.0]      University              16              0.291811                0.124657      0.250000           0.250000           140692.0           15000.0       1.302911e+05             132066.5         1.949240           1.934467
+  Male   Single (20.999, 27.0] Graduate School             648              0.239330                0.124049      0.194444           0.325617           100001.0           11279.5       1.650931e+05              79481.0         2.015715           1.535687
+Female  Married (20.999, 27.0]          Others               2              0.123189                0.123189      0.000000           0.500000            47937.0            1705.0       4.623200e+04              46232.0         0.666815           0.666815
+Female   Others   (37.0, 43.0]      University              22              0.202444                0.119029      0.181818           0.318182           174681.5           18925.5       3.156852e+05             154667.0         2.247317           2.032021
+Female   Single   (31.0, 37.0]     High School             148              0.254897                0.118974      0.168919           0.283784            99025.5           14830.5       2.292479e+05              70809.5         1.752987           0.435964
+  Male   Single   (37.0, 43.0] Graduate School             225              0.274304                0.117057      0.213333           0.302222           165461.0           23000.0       3.495693e+05             106139.0         2.007292           1.122209
+  Male  Married   (43.0, 79.0]         Unknown              24              0.232452                0.110912      0.208333           0.125000           279734.0           20192.5       3.558597e+05             173267.0         2.555038           2.073378
+Female   Single (20.999, 27.0] Graduate School            1519              0.237899                0.109679      0.198157           0.329164           104556.0           12400.0       1.790847e+05              86088.0         1.966876           1.329150
+Female   Single   (37.0, 43.0]     High School             138              0.210792                0.108314      0.260870           0.355072           136834.0           13087.0       2.155677e+05             116078.5         2.192453           1.966355
+  Male   Single   (43.0, 79.0]         Unknown              14              0.156601                0.103988      0.071429           0.285714           175757.5           17218.0       2.010895e+05             153454.0         3.215018           2.550609
+  Male   Single   (31.0, 37.0]     High School             160              0.212340                0.098488      0.237500           0.331250           152297.0           13635.0       2.546359e+05             111840.0         2.475893           2.368879
+  Male   Others   (31.0, 37.0]      University              16              0.143583                0.093062      0.250000           0.187500           134892.5           10638.0       1.491821e+05             117135.0         2.539877           2.796324
+  Male  Married   (27.0, 31.0]      University             240              0.224059                0.092520      0.266667           0.370833           152529.0           13000.0       2.378624e+05             122188.0         2.213944           1.760603
+Female  Married   (37.0, 43.0]      University            1043              0.260469                0.091220      0.210930           0.313519           121893.0           14711.0       2.445724e+05              91911.0         1.866870           1.028000
+Female   Others   (37.0, 43.0]         Unknown               2              0.090438                0.090438      0.000000           0.000000           979715.5          113729.0       8.659865e+05             865986.5         3.720444           3.720444
+Female   Single   (31.0, 37.0]      University             696              0.225180                0.089292      0.173851           0.271552           165651.5           18562.5       3.109471e+05             142686.5         2.029883           1.357652
+Female   Single   (43.0, 79.0]      University             300              0.239532                0.087919      0.213333           0.306667           116417.0           12782.0       2.308672e+05             101360.0         2.206309           1.950750
+  Male   Single   (37.0, 43.0]     High School             141              0.184761                0.087495      0.241135           0.340426           162594.0           12639.0       2.534497e+05             128773.0         2.582279           2.760160
+Female  Married   (43.0, 79.0]      University            1037              0.247286                0.084667      0.241080           0.329797           119892.0           13288.0       2.489415e+05              99379.0         1.967370           1.392189
+Female   Single   (31.0, 37.0]         Unknown              21              0.166868                0.081541      0.047619           0.285714           161428.0           13060.0       2.202959e+05             150905.0         1.882451           1.891400
+Female   Others (20.999, 27.0] Graduate School               3              0.153883                0.080884      0.666667           0.333333            65737.0            6500.0       4.663333e+04              59237.0         2.220504           2.961850
+Female  Married   (31.0, 37.0]      University            1262              0.224888                0.080712      0.206815           0.321712           157038.0           15964.5       2.700457e+05             128487.0         2.009523           1.315648
+  Male   Single (20.999, 27.0]      University            1073              0.156280                0.079829      0.286114           0.455732           114039.0            9000.0       1.719901e+05             103845.0         2.824791           2.964300
+Female   Others   (43.0, 79.0]     High School              40              0.191149                0.079470      0.300000           0.475000           105358.5            8014.5       1.670725e+05              95004.0         2.675453           3.087583
+Female   Single   (37.0, 43.0]      University             380              0.217234                0.078741      0.157895           0.242105           177485.0           19454.5       3.106347e+05             140783.5         2.058912           1.628166
+Female  Married   (43.0, 79.0]     High School             812              0.212795                0.077493      0.261084           0.390394           123247.0           11457.0       2.051173e+05             107387.0         2.240079           2.054275
+  Male  Married   (31.0, 37.0]      University             615              0.197968                0.077106      0.256911           0.352846           151152.0           14157.0       2.704012e+05             130020.0         2.225991           1.945380
+Female   Others   (31.0, 37.0]         Unknown               1              0.076410                0.076410      0.000000           0.000000           102000.0            7847.0       9.415300e+04              94153.0         4.707650           4.707650
+  Male   Others   (37.0, 43.0]      University              17              0.132299                0.076290      0.235294           0.294118           216293.0           11104.0       2.086669e+05             199689.0         2.905002           2.671476
+  Male   Single   (27.0, 31.0]     High School             146              0.183819                0.075768      0.315068           0.431507           140971.5           12000.0       2.101862e+05             111064.0         2.366654           2.294911
+Female   Single (20.999, 27.0]     High School             281              0.174934                0.075746      0.256228           0.387900           152088.0           11106.0       1.699619e+05             122808.0         2.453459           2.453633
+Female  Married   (31.0, 37.0]     High School             303              0.211570                0.075699      0.234323           0.379538           172544.0           13322.0       2.333395e+05             158852.0         2.368039           2.201256
+Female  Married   (27.0, 31.0]         Unknown              10              0.113423                0.075549      0.000000           0.100000           225157.5           10778.5       3.249577e+05             216716.0         3.053444           3.250635
+  Male   Others   (43.0, 79.0]      University              22              0.115883                0.073916      0.409091           0.409091           129877.0            8378.5       1.184617e+05             122402.0         2.774513           2.619050
+Female  Married   (37.0, 43.0]     High School             437              0.231493                0.072959      0.221968           0.331808           146631.0           13675.0       2.216563e+05             119501.0         2.106773           1.579450
+Female   Single   (43.0, 79.0]     High School             290              0.206136                0.072928      0.227586           0.334483           156596.0           12000.0       2.317838e+05             134205.5         2.527467           2.648217
+Female  Married   (27.0, 31.0]      University             623              0.195858                0.072297      0.223114           0.325843           167460.0           15085.0       2.705153e+05             149400.0         2.139756           1.796170
+Female   Single (20.999, 27.0]      University            1861              0.171881                0.072123      0.245030           0.394412           151194.0           12170.0       2.075733e+05             130541.0         2.538522           2.474144
+  Male  Married   (37.0, 43.0]     High School             239              0.196592                0.072069      0.246862           0.372385           149375.0           13104.0       2.783319e+05             123126.0         2.347219           2.218290
+  Male  Married   (43.0, 79.0]      University             787              0.220685                0.071980      0.287166           0.350699           145318.0           12100.0       2.634521e+05             119665.0         2.256727           2.114340
+  Male   Others   (43.0, 79.0] Graduate School              18              0.137058                0.071393      0.388889           0.222222           281080.0           17814.0       3.836493e+05             274061.5         3.347719           4.020045
+Female   Others   (43.0, 79.0]      University              41              0.166316                0.071331      0.292683           0.487805            99134.0            6752.0       1.472777e+05              93714.0         2.604027           2.487583
+Female  Married   (27.0, 31.0]     High School             139              0.196158                0.071141      0.258993           0.395683           174583.0           11759.0       2.459688e+05             162025.0         2.502755           2.546608
+  Male  Married   (43.0, 79.0]     High School             567              0.192792                0.070969      0.289242           0.414462           126272.0           10148.0       2.534928e+05             108983.0         2.343951           2.125900
+  Male  Married   (37.0, 43.0]      University             624              0.212360                0.070843      0.266026           0.325321           161477.5           15051.0       2.915972e+05             138547.0         2.253200           2.114497
+Female   Others   (27.0, 31.0]      University              12              0.177131                0.070706      0.333333           0.500000           171982.5            8615.0       2.247443e+05             163583.0         2.842346           4.068715
+Female   Single   (27.0, 31.0]      University             843              0.207584                0.069354      0.204033           0.320285           185617.0           18011.0       3.096836e+05             162607.0         2.083937           1.529685
+  Male   Single   (31.0, 37.0]      University             588              0.178567                0.068801      0.238095           0.372449           171881.5           15980.5       2.675154e+05             141853.0         2.570620           2.677672
+  Male   Single   (27.0, 31.0]      University             708              0.180276                0.067705      0.211864           0.365819           182454.5           14560.0       2.798143e+05             158376.0         2.377658           2.199364
+  Male   Single   (43.0, 79.0]     High School             199              0.166326                0.067642      0.206030           0.346734           137508.0            9500.0       2.013020e+05             110923.0         2.709392           2.807720
+  Male  Married (20.999, 27.0]     High School              25              0.147432                0.067416      0.520000           0.400000            85455.0            5872.0       1.262151e+05              78343.0         2.401116           2.331227
+  Male   Single (20.999, 27.0]         Unknown              21              0.120950                0.067294      0.000000           0.238095           118667.0            9102.0       2.118698e+05             113400.0         2.830950           2.670180
+Female  Married (20.999, 27.0]     High School             122              0.154771                0.066705      0.286885           0.500000           152261.0            9935.5       1.901814e+05             140609.0         2.850126           2.967675
+  Male   Single   (37.0, 43.0]      University             317              0.161824                0.066171      0.261830           0.331230           174598.0           12290.0       2.713145e+05             159095.0         2.939259           3.348800
+  Male   Single (20.999, 27.0]     High School             248              0.144611                0.065937      0.282258           0.451613           107226.5            7987.0       1.477201e+05              98409.5         2.920189           3.102863
+Female   Single (20.999, 27.0]         Unknown              32              0.161008                0.065733      0.093750           0.125000           258257.5           13646.5       2.023856e+05             166177.5         2.415800           2.641524
+  Male   Single   (43.0, 79.0]      University             254              0.151799                0.064694      0.259843           0.326772           161384.5           10426.5       2.547362e+05             136088.5         2.959076           3.139167
+  Male  Married   (37.0, 43.0]         Unknown              15              0.153763                0.063755      0.133333           0.066667           479117.0           22259.0       4.268024e+05             439555.0         2.618714           2.642956
+Female   Others   (43.0, 79.0]         Unknown               1              0.062536                0.062536      0.000000           0.000000           179388.0           12684.0       1.667040e+05             166704.0         1.852267           1.852267
+Female  Married (20.999, 27.0]      University             507              0.157524                0.059922      0.301775           0.414201           167308.0           11017.0       2.192912e+05             155318.0         2.828813           3.112720
+  Male  Unknown   (37.0, 43.0]     High School               2              0.059738                0.059738      0.000000           0.000000            96048.5            4742.5       9.130600e+04              91306.0         3.237360           3.237360
+Female  Unknown   (27.0, 31.0]     High School               5              0.163472                0.059476      0.000000           0.600000           141972.0            7411.0       2.039110e+05             134561.0         2.502914           3.880845
+Female   Single   (43.0, 79.0]         Unknown              20              0.135566                0.059318      0.150000           0.200000           369672.5           24282.5       6.110398e+05             362822.5         3.015375           2.688471
+  Male   Others   (43.0, 79.0]     High School              28              0.119573                0.058555      0.285714           0.428571           116797.0            7938.0       1.648400e+05             109997.0         3.130405           3.276980
+  Male   Single   (43.0, 79.0] Graduate School             144              0.209568                0.056240      0.173611           0.291667           177461.0           18059.5       3.580337e+05             165653.0         2.169855           2.039700
+  Male  Married (20.999, 27.0] Graduate School              15              0.192344                0.054846      0.333333           0.466667            39654.0            8500.0       2.290195e+05              33183.0         1.922967           1.106100
+  Male  Married   (31.0, 37.0]     High School             144              0.201182                0.052347      0.319444           0.333333           158533.5           12614.0       2.463318e+05             142842.0         2.362552           2.091093
+  Male  Married (20.999, 27.0]      University             104              0.136577                0.051462      0.278846           0.326923           148256.0            8393.5       1.910222e+05             124846.5         2.655611           2.767790
+  Male  Married   (27.0, 31.0]     High School              73              0.129117                0.048899      0.287671           0.493151           164597.0           11716.0       2.947486e+05             158643.0         2.790410           2.895360
+Female  Married   (43.0, 79.0]         Unknown              35              0.172104                0.047926      0.028571           0.142857           369845.0           20606.0       4.771981e+05             357336.0         3.199328           3.571300
+  Male   Others   (37.0, 43.0]     High School               5              0.096307                0.045555      0.400000           0.600000           334390.0           16313.0       2.457966e+05             318077.0         3.491248           3.840292
+  Male  Married   (27.0, 31.0]         Unknown               9              0.173018                0.044956      0.000000           0.111111           466769.0           21600.0       4.349570e+05             450596.0         2.491757           2.436760
+Female  Married (20.999, 27.0]         Unknown              14              0.118757                0.044655      0.071429           0.071429           456040.0           26285.5       4.901270e+05             435257.0         3.703831           4.246136
+  Male   Single   (37.0, 43.0]         Unknown               8              0.168764                0.044517      0.000000           0.625000           349078.0           24046.5       3.770405e+05             303312.0         2.279480           2.493017
+  Male   Single   (31.0, 37.0]         Unknown              12              0.136194                0.042835      0.000000           0.166667           172009.0            7855.0       2.537604e+05             131696.5         2.554619           3.068739
+  Male   Single   (27.0, 31.0]          Others              11              0.210050                0.041833      0.090909           0.090909           337354.0           24369.0       3.544855e+05             329822.0         2.465727           3.376160
+  Male   Others   (27.0, 31.0]      University               3              0.071564                0.041275      0.333333           0.000000           218334.0            6935.0       1.636507e+05             211399.0         4.354160           4.227980
+  Male   Others   (43.0, 79.0]         Unknown               1              0.040457                0.040457      0.000000           1.000000           201859.0            9681.0       1.921780e+05             192178.0         1.921780           1.921780
+Female   Others   (31.0, 37.0]     High School               5              0.172354                0.040290      0.200000           0.400000           247399.0           13158.0       2.516288e+05             238999.0         2.279776           1.904800
+Female  Married   (27.0, 31.0]          Others               5              0.198766                0.039996      0.000000           0.200000           335075.0           10621.0       2.112784e+05             303543.0         1.079772           1.686350
+Female  Unknown   (43.0, 79.0]      University               1              0.039996                0.039996      0.000000           0.000000           325779.0           12418.0       3.133610e+05             313361.0         1.080555           1.080555
+  Male   Others   (37.0, 43.0] Graduate School               4              0.076927                0.033992      0.500000           0.000000           376763.0           16906.5       5.402292e+05             359856.5         2.665898           2.561656
+Female  Unknown   (27.0, 31.0]      University               1              0.031967                0.031967      0.000000           1.000000           287973.0           10464.0       2.775090e+05             277509.0         5.550180           5.550180
+Female   Others (20.999, 27.0]     High School               3              0.048304                0.029493      0.333333           1.000000           172607.0            6200.0       1.407190e+05             167000.0         4.206012           3.804320
+  Male  Unknown   (27.0, 31.0]     High School               1              0.000000                0.000000      0.000000           1.000000            10800.0               0.0       1.080000e+04              10800.0         0.540000           0.540000
+
+=== Combined Repayment Summary (Customer Count >= 50) ===
+   SEX MARRIAGE      age_group       EDUCATION  customer_count  mean_repayment_ratio  median_repayment_ratio  default_rate  late_payment_rate  median_total_bill  median_total_pay  mean_debt_balance  median_debt_balance  mean_debt_ratio  median_debt_ratio
+Female  Married   (31.0, 37.0] Graduate School             682              0.341430                0.270221      0.187683           0.266862            58520.5           20155.5      193447.847507               8480.5         0.981025           0.034668
+Female  Married   (37.0, 43.0] Graduate School             566              0.345255                0.267750      0.187279           0.314488            47135.5           19458.0      193868.217314               7656.0         0.926690           0.033498
+Female   Single   (31.0, 37.0] Graduate School             830              0.329982                0.254627      0.172289           0.277108            70960.5           21061.0      201505.027711              13479.0         1.009278           0.062953
+Female  Married   (43.0, 79.0] Graduate School             482              0.333871                0.249320      0.190871           0.300830            43243.5           20100.0      215283.292531               4277.5         1.038878           0.019040
+  Male  Married   (37.0, 43.0] Graduate School             535              0.317464                0.208698      0.228037           0.349533            65568.0           20398.0      243384.740187              14222.0         1.185743           0.050937
+Female   Single   (27.0, 31.0] Graduate School            1398              0.306483                0.208309      0.159514           0.278970            85248.0           20106.5      212448.881259              39950.0         1.250920           0.208289
+Female   Single   (37.0, 43.0] Graduate School             260              0.301474                0.199196      0.176923           0.219231            60747.5           19502.0      228382.526923               9783.0         1.042574           0.034399
+  Male  Married   (31.0, 37.0] Graduate School             396              0.293610                0.176995      0.222222           0.290404           108962.5           21225.5      269960.194444              40319.0         1.371126           0.199369
+  Male   Single   (27.0, 31.0] Graduate School             880              0.281184                0.166030      0.180682           0.317045           113464.0           19550.0      247194.901136              70293.5         1.573334           0.591100
+Female   Single   (43.0, 79.0] Graduate School             169              0.269493                0.160763      0.207101           0.307692           100439.0           23700.0      275829.331361              29990.0         1.507750           0.122992
+Female  Married (20.999, 27.0] Graduate School              70              0.266011                0.156476      0.228571           0.400000            96023.0           12540.0      186761.642857              60895.0         1.909369           1.300835
+  Male  Married   (43.0, 79.0] Graduate School             659              0.315127                0.150805      0.233687           0.292868           105313.0           19539.0      297846.913505              27102.0         1.408113           0.081829
+Female  Married   (27.0, 31.0] Graduate School             232              0.264797                0.147293      0.159483           0.340517            93973.0           20671.5      243456.577586              39624.0         1.372618           0.218684
+  Male  Married   (27.0, 31.0] Graduate School              85              0.247798                0.131086      0.247059           0.317647           168250.0           21000.0      292319.517647              86981.0         1.620912           0.874646
+  Male   Single   (31.0, 37.0] Graduate School             736              0.259571                0.131015      0.201087           0.328804           136217.5           21078.0      271668.001359              97062.0         1.564786           0.556856
+Female   Single   (27.0, 31.0]     High School             158              0.254478                0.125291      0.151899           0.341772           101440.5           17073.5      251625.139241              91802.0         1.810612           1.074302
+  Male   Single (20.999, 27.0] Graduate School             648              0.239330                0.124049      0.194444           0.325617           100001.0           11279.5      165093.069444              79481.0         2.015715           1.535687
+Female   Single   (31.0, 37.0]     High School             148              0.254897                0.118974      0.168919           0.283784            99025.5           14830.5      229247.925676              70809.5         1.752987           0.435964
+  Male   Single   (37.0, 43.0] Graduate School             225              0.274304                0.117057      0.213333           0.302222           165461.0           23000.0      349569.275556             106139.0         2.007292           1.122209
+Female   Single (20.999, 27.0] Graduate School            1519              0.237899                0.109679      0.198157           0.329164           104556.0           12400.0      179084.741277              86088.0         1.966876           1.329150
+Female   Single   (37.0, 43.0]     High School             138              0.210792                0.108314      0.260870           0.355072           136834.0           13087.0      215567.724638             116078.5         2.192453           1.966355
+  Male   Single   (31.0, 37.0]     High School             160              0.212340                0.098488      0.237500           0.331250           152297.0           13635.0      254635.868750             111840.0         2.475893           2.368879
+  Male  Married   (27.0, 31.0]      University             240              0.224059                0.092520      0.266667           0.370833           152529.0           13000.0      237862.375000             122188.0         2.213944           1.760603
+Female  Married   (37.0, 43.0]      University            1043              0.260469                0.091220      0.210930           0.313519           121893.0           14711.0      244572.371045              91911.0         1.866870           1.028000
+Female   Single   (31.0, 37.0]      University             696              0.225180                0.089292      0.173851           0.271552           165651.5           18562.5      310947.104885             142686.5         2.029883           1.357652
+Female   Single   (43.0, 79.0]      University             300              0.239532                0.087919      0.213333           0.306667           116417.0           12782.0      230867.186667             101360.0         2.206309           1.950750
+  Male   Single   (37.0, 43.0]     High School             141              0.184761                0.087495      0.241135           0.340426           162594.0           12639.0      253449.673759             128773.0         2.582279           2.760160
+Female  Married   (43.0, 79.0]      University            1037              0.247286                0.084667      0.241080           0.329797           119892.0           13288.0      248941.498554              99379.0         1.967370           1.392189
+Female  Married   (31.0, 37.0]      University            1262              0.224888                0.080712      0.206815           0.321712           157038.0           15964.5      270045.687005             128487.0         2.009523           1.315648
+  Male   Single (20.999, 27.0]      University            1073              0.156280                0.079829      0.286114           0.455732           114039.0            9000.0      171990.054986             103845.0         2.824791           2.964300
+Female   Single   (37.0, 43.0]      University             380              0.217234                0.078741      0.157895           0.242105           177485.0           19454.5      310634.660526             140783.5         2.058912           1.628166
+Female  Married   (43.0, 79.0]     High School             812              0.212795                0.077493      0.261084           0.390394           123247.0           11457.0      205117.342365             107387.0         2.240079           2.054275
+  Male  Married   (31.0, 37.0]      University             615              0.197968                0.077106      0.256911           0.352846           151152.0           14157.0      270401.177236             130020.0         2.225991           1.945380
+  Male   Single   (27.0, 31.0]     High School             146              0.183819                0.075768      0.315068           0.431507           140971.5           12000.0      210186.212329             111064.0         2.366654           2.294911
+Female   Single (20.999, 27.0]     High School             281              0.174934                0.075746      0.256228           0.387900           152088.0           11106.0      169961.946619             122808.0         2.453459           2.453633
+Female  Married   (31.0, 37.0]     High School             303              0.211570                0.075699      0.234323           0.379538           172544.0           13322.0      233339.491749             158852.0         2.368039           2.201256
+Female  Married   (37.0, 43.0]     High School             437              0.231493                0.072959      0.221968           0.331808           146631.0           13675.0      221656.343249             119501.0         2.106773           1.579450
+Female   Single   (43.0, 79.0]     High School             290              0.206136                0.072928      0.227586           0.334483           156596.0           12000.0      231783.824138             134205.5         2.527467           2.648217
+Female  Married   (27.0, 31.0]      University             623              0.195858                0.072297      0.223114           0.325843           167460.0           15085.0      270515.303371             149400.0         2.139756           1.796170
+Female   Single (20.999, 27.0]      University            1861              0.171881                0.072123      0.245030           0.394412           151194.0           12170.0      207573.297152             130541.0         2.538522           2.474144
+  Male  Married   (37.0, 43.0]     High School             239              0.196592                0.072069      0.246862           0.372385           149375.0           13104.0      278331.887029             123126.0         2.347219           2.218290
+  Male  Married   (43.0, 79.0]      University             787              0.220685                0.071980      0.287166           0.350699           145318.0           12100.0      263452.050826             119665.0         2.256727           2.114340
+Female  Married   (27.0, 31.0]     High School             139              0.196158                0.071141      0.258993           0.395683           174583.0           11759.0      245968.784173             162025.0         2.502755           2.546608
+  Male  Married   (43.0, 79.0]     High School             567              0.192792                0.070969      0.289242           0.414462           126272.0           10148.0      253492.814815             108983.0         2.343951           2.125900
+  Male  Married   (37.0, 43.0]      University             624              0.212360                0.070843      0.266026           0.325321           161477.5           15051.0      291597.189103             138547.0         2.253200           2.114497
+Female   Single   (27.0, 31.0]      University             843              0.207584                0.069354      0.204033           0.320285           185617.0           18011.0      309683.642942             162607.0         2.083937           1.529685
+  Male   Single   (31.0, 37.0]      University             588              0.178567                0.068801      0.238095           0.372449           171881.5           15980.5      267515.397959             141853.0         2.570620           2.677672
+  Male   Single   (27.0, 31.0]      University             708              0.180276                0.067705      0.211864           0.365819           182454.5           14560.0      279814.285311             158376.0         2.377658           2.199364
+  Male   Single   (43.0, 79.0]     High School             199              0.166326                0.067642      0.206030           0.346734           137508.0            9500.0      201302.025126             110923.0         2.709392           2.807720
+Female  Married (20.999, 27.0]     High School             122              0.154771                0.066705      0.286885           0.500000           152261.0            9935.5      190181.401639             140609.0         2.850126           2.967675
+  Male   Single   (37.0, 43.0]      University             317              0.161824                0.066171      0.261830           0.331230           174598.0           12290.0      271314.470032             159095.0         2.939259           3.348800
+  Male   Single (20.999, 27.0]     High School             248              0.144611                0.065937      0.282258           0.451613           107226.5            7987.0      147720.116935              98409.5         2.920189           3.102863
+  Male   Single   (43.0, 79.0]      University             254              0.151799                0.064694      0.259843           0.326772           161384.5           10426.5      254736.161417             136088.5         2.959076           3.139167
+Female  Married (20.999, 27.0]      University             507              0.157524                0.059922      0.301775           0.414201           167308.0           11017.0      219291.244576             155318.0         2.828813           3.112720
+  Male   Single   (43.0, 79.0] Graduate School             144              0.209568                0.056240      0.173611           0.291667           177461.0           18059.5      358033.666667             165653.0         2.169855           2.039700
+  Male  Married   (31.0, 37.0]     High School             144              0.201182                0.052347      0.319444           0.333333           158533.5           12614.0      246331.756944             142842.0         2.362552           2.091093
+  Male  Married (20.999, 27.0]      University             104              0.136577                0.051462      0.278846           0.326923           148256.0            8393.5      191022.250000             124846.5         2.655611           2.767790
+  Male  Married   (27.0, 31.0]     High School              73              0.129117                0.048899      0.287671           0.493151           164597.0           11716.0      294748.630137             158643.0         2.790410           2.895360
+
+=== Repayment Ratio Sensitivity Analysis ===
+ threshold  high_risk_count  high_risk_default_rate  pct_of_defaults_captured  pct_of_customers_flagged
+       0.3            21031                0.252722                 80.093430                 70.103333
+       0.5            24366                0.240376                 88.261001                 81.220000
+       0.7            27224                0.229944                 94.333936                 90.746667
+       0.9            29477                0.221936                 98.583484                 98.256667
+
+=== Interaction: PAY_0 and MARRIAGE vs Default ===
+default_label   Default  Non-default
+MARRIAGE PAY_0                      
+Married  -2        2.86         5.10
+         -1        7.25         9.75
+          0       13.17        23.29
+          1        8.89         4.83
+          2       13.85         1.55
+          3        1.66         0.13
+          4        0.36         0.05
+          5        0.08         0.01
+          6        0.03         0.01
+          7        0.06         0.01
+          8        0.11         0.01
+Others   -2        0.03         0.05
+         -1        0.15         0.14
+          0        0.48         0.65
+          1        0.27         0.12
+          2        0.27         0.05
+          3        0.06         0.01
+Single   -2        2.59         5.07
+         -1        6.98        10.30
+          0       14.77        30.98
+          1        9.69         5.45
+          2       13.65         1.91
+          3        1.96         0.19
+          4        0.42         0.06
+          5        0.12         0.04
+          6        0.06         0.01
+          7        0.05         0.00
+          8        0.06         0.03
+Unknown  -2        0.02         0.03
+         -1        0.00         0.06
+          0        0.03         0.08
+          1        0.02         0.03
+          2        0.02         0.01
+          5        0.00         0.00
+
+=== PCA Loadings for Payment Amounts ===
+            PC1    PC2
+PAY_AMT1  0.454 -0.334
+PAY_AMT2  0.446 -0.278
+PAY_AMT3  0.440 -0.293
+PAY_AMT4  0.392 -0.038
+PAY_AMT5  0.348  0.672
+PAY_AMT6  0.357  0.522
+
+=== Train/Test Split ===
+Train size: 24000
+Test size: 6000
+
+=== Test Normality Before Preprocessing with Shapiro-Wilk ===
+Running normality test:
+LIMIT_BAL: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+AGE: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT1: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT2: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT3: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT4: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT5: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+BILL_AMT6: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT1: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT2: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT3: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT4: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT5: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+PAY_AMT6: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+
+=== Test Normality After Preprocessing with Shapiro-Wilk ===
+Running normality test:
+num__LIMIT_BAL: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__AGE: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT1: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT2: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT3: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT4: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT5: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__BILL_AMT6: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT1: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT2: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT3: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT4: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT5: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+num__PAY_AMT6: Shapiro-Wilk test p-value = 0.0000. Reject normality.
+
+=== Preprocessed Data Shapes ===
+Train shape: (24000, 31)
+Test shape: (6000, 31)
+
+============================================================
+LOGISTIC REGRESSION - SIMPLE BASELINE
+============================================================
+Test Accuracy: 0.8033
+ROC-AUC: 0.7355
+Average Precision: 0.4971
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.82      0.96      0.88      4673
+           1       0.64      0.25      0.36      1327
+
+    accuracy                           0.80      6000
+   macro avg       0.73      0.60      0.62      6000
+weighted avg       0.78      0.80      0.77      6000
+
+
+=== Simple Baseline Logistic Threshold Comparison ===
+ Threshold  Precision  Recall  F1-Score  TP  FP   FN   TN                   Interpretation
+       0.3     0.5197  0.5072    0.5133 673 622  654 4051       Max Detection (Aggressive)
+       0.5     0.6450  0.2464    0.3566 327 180 1000 4493               Standard (Default)
+       0.7     0.7424  0.0739    0.1343  98  34 1229 4639 Reduce Operations (Conservative)
+
+=== Best Logistic Regression Parameters ===
+{'C': 0.011493777630305664}
+Best Cross-Validated ROC-AUC: 0.7744
+
+=== Logistic Risk Thresholds from Validation ===
+Low / Medium threshold: 0.1667
+Medium / High threshold: 0.3253
+
+=== Validation Risk Group Summary ===
+risk_group  customer_count  mean_predicted_probability  observed_default_rate
+       Low            2400                      0.1025                 0.1096
+    Medium            1440                      0.2222                 0.1958
+      High             960                      0.5072                 0.5385
+
+============================================================
+LOGISTIC REGRESSION - OPTIMIZED WITH SMOTENC
+============================================================
+Train Accuracy: 0.7527
+Test Accuracy: 0.7493
+Test ROC-AUC: 0.7590
+Test Average Precision: 0.5201
+
+Confusion Matrix (Test):
+[[3689  984]
+ [ 520  807]]
+
+Classification Report (Test):
+              precision    recall  f1-score   support
+
+           0       0.88      0.79      0.83      4673
+           1       0.45      0.61      0.52      1327
+
+    accuracy                           0.75      6000
+   macro avg       0.66      0.70      0.67      6000
+weighted avg       0.78      0.75      0.76      6000
+
+
+Logistic Regression 5-Fold Cross-Validation Scores:
+[0.77290672 0.76737739 0.76517448 0.77748972 0.7759555 ]
+Cross-Validation Mean: 0.7718
+
+=== Logistic Threshold Comparison ===
+ Threshold  Precision  Recall  F1-Score   TP   FP  FN   TN                   Interpretation
+       0.3     0.2802  0.8862    0.4258 1176 3021 151 1652       Max Detection (Aggressive)
+       0.5     0.4506  0.6081    0.5176  807  984 520 3689               Standard (Default)
+       0.7     0.6223  0.4084    0.4932  542  329 785 4344 Reduce Operations (Conservative)
+
+=== Top Logistic Regression Coefficients ===
+                  feature  coefficient  abs_coefficient
+                  PAY_0_2       1.1902           1.1902
+                  PAY_0_0      -0.6185           0.6185
+        EDUCATION_Unknown      -0.5101           0.5101
+                 PAY_0_-2      -0.5025           0.5025
+     EDUCATION_University       0.4662           0.4662
+                LIMIT_BAL      -0.4453           0.4453
+                BILL_AMT6       0.3958           0.3958
+                BILL_AMT3       0.3354           0.3354
+                BILL_AMT2       0.3262           0.3262
+EDUCATION_Graduate School       0.3076           0.3076
+                BILL_AMT1      -0.2981           0.2981
+         MARRIAGE_Married       0.2783           0.2783
+                 PAY_AMT2      -0.2685           0.2685
+          MARRIAGE_Others      -0.2449           0.2449
+                 PAY_AMT5      -0.2413           0.2413
+
+=== SHAP Feature Importance - Logistic Regression ===
+                  feature  importance
+                  PAY_0_0      0.3091
+     EDUCATION_University      0.2312
+                BILL_AMT6      0.2309
+                 PAY_AMT2      0.2230
+                LIMIT_BAL      0.2136
+                BILL_AMT3      0.2017
+                 PAY_AMT1      0.1945
+                BILL_AMT2      0.1912
+                 PAY_AMT3      0.1719
+                  PAY_0_2      0.1715
+                BILL_AMT1      0.1715
+                 PAY_AMT5      0.1649
+EDUCATION_Graduate School      0.1486
+         MARRIAGE_Married      0.1362
+                BILL_AMT4      0.1299
+
+=== SHAP Direction for Top 5 Logistic Features ===
+             feature  coefficient                                     direction
+             PAY_0_0      -0.6185 Higher values decrease predicted default risk
+EDUCATION_University       0.4662 Higher values increase predicted default risk
+           BILL_AMT6       0.3958 Higher values increase predicted default risk
+            PAY_AMT2      -0.2685 Higher values decrease predicted default risk
+           LIMIT_BAL      -0.4453 Higher values decrease predicted default risk
+
+=== RFE Feature Ranking - Logistic Regression ===
+ rank                   feature  ranking
+    1                   PAY_0_2        1
+    2                   PAY_4_2        2
+    3                   PAY_0_0        3
+    4                  PAY_0_-2        4
+    5                  PAY_0_-1        5
+    6                   PAY_0_3        6
+    7                 LIMIT_BAL        7
+    8                   PAY_5_2        8
+    9                  PAY_AMT2        9
+   10                 BILL_AMT3       10
+   11         EDUCATION_Unknown       11
+   12                   PAY_3_2       12
+   13                  PAY_AMT1       13
+   14                 BILL_AMT2       14
+   15                   PAY_6_0       15
+   16                  PAY_3_-2       16
+   17                  PAY_AMT3       17
+   18                 BILL_AMT6       18
+   19                  PAY_AMT5       19
+   20           MARRIAGE_Single       20
+   21                  PAY_2_-1       21
+   22                  PAY_4_-2       22
+   23                SEX_Female       23
+   24                  PAY_AMT6       24
+   25                   PAY_2_4       25
+   26                 BILL_AMT4       26
+   27                   PAY_2_2       27
+   28                 BILL_AMT1       28
+   29                   PAY_0_1       29
+   30                   PAY_6_2       30
+   31                  PAY_AMT4       31
+   32                   PAY_2_3       32
+   33      EDUCATION_University       33
+   34 EDUCATION_Graduate School       34
+   35                  PAY_3_-1       35
+   36                  PAY_5_-2       36
+   37                   PAY_5_0       37
+   38                   PAY_4_5       38
+   39          MARRIAGE_Unknown       39
+   40          MARRIAGE_Married       40
+   41           MARRIAGE_Others       41
+   42                  SEX_Male       42
+   43          EDUCATION_Others       43
+   44                  PAY_2_-2       44
+   45                       AGE       45
+   46                   PAY_6_3       46
+   47                   PAY_5_4       47
+   48                   PAY_0_4       48
+   49                   PAY_2_0       49
+   50                   PAY_3_4       50
+   51                  PAY_4_-1       51
+   52                   PAY_4_0       52
+   53                   PAY_0_8       53
+   54                   PAY_3_0       54
+   55                   PAY_0_5       55
+   56                   PAY_4_7       56
+   57     EDUCATION_High School       57
+   58                   PAY_6_4       58
+   59                   PAY_2_7       59
+   60                   PAY_5_7       60
+   61                  PAY_6_-1       61
+   62                  PAY_6_-2       62
+   63                   PAY_6_6       63
+   64                   PAY_3_6       64
+   65                   PAY_4_4       65
+   66                   PAY_5_3       66
+   67                   PAY_4_3       67
+   68                   PAY_0_7       68
+   69                   PAY_6_7       69
+   70                   PAY_4_6       70
+   71                   PAY_3_5       71
+   72                   PAY_2_6       72
+   73                  PAY_5_-1       73
+   74                 BILL_AMT5       74
+   75                   PAY_5_6       75
+   76                   PAY_2_8       76
+   77                   PAY_4_1       77
+   78                   PAY_3_1       78
+   79                   PAY_3_8       79
+   80                   PAY_6_5       80
+   81                   PAY_0_6       81
+   82                   PAY_3_7       82
+   83                   PAY_3_3       83
+   84                   PAY_2_5       84
+   85                   PAY_2_1       85
+   86                   PAY_5_8       86
+   87                   PAY_6_8       87
+   88                   PAY_4_8       88
+   89                   PAY_5_5       89
+
+=== UMAP + GMM Clustering ===
+Train Silhouette Score: 0.4926
+Test Silhouette Score: 0.4940
+
+Train cluster distribution:
+0    9397
+1    6340
+2    8263
+Name: count, dtype: int64
+
+Test cluster distribution:
+0    2391
+1    1546
+2    2063
+Name: count, dtype: int64
+
+Default rate per cluster (Train):
+Cluster 0 (Low Risk): 10.32%
+Cluster 2 (Medium Risk): 16.06%
+Cluster 1 (High Risk): 47.51%
+
+Default rate per cluster (Test, reporting only):
+Cluster 0 (Low Risk): 11.25%
+Cluster 2 (Medium Risk): 16.72%
+Cluster 1 (High Risk): 46.12%
+
+=== Cluster Label Validation ===
+Rows in df_full: 30000
+cluster_label missing values: 0
+risk_label missing values: 0
+Risk mapping learned from Train:
+{0: 'Low Risk', 2: 'Medium Risk', 1: 'High Risk'}
+
+=== Cluster Summary ===
+               cluster_size   risk_label  LIMIT_BAL_mean  LIMIT_BAL_median  AGE_mean  AGE_median  PAY_0_mean  PAY_0_median  BILL_AMT1_mean  BILL_AMT1_median  PAY_AMT1_mean  PAY_AMT1_median  default payment next month_mean  default payment next month_median
+cluster_label                                                                                                                                                                                                                                                   
+0                     11788     Low Risk       165395.12          130000.0     35.13        33.0       -0.04           0.0        85620.03           55279.5        7414.18           3200.0                             0.11                                0.0
+2                     10326  Medium Risk       214716.25          200000.0     36.32        35.0       -0.76          -1.0        11779.13            1902.0        5369.42           1120.5                             0.16                                0.0
+1                      7886    High Risk       108761.35           70000.0     34.93        33.0        0.99           1.0        51455.71           27894.0        3431.96           1800.0                             0.47                                0.0
+
+=== Saved Clustering Files ===
+Train rows: 24000
+Test rows: 6000
+clusters_train_test_final.xlsx
+cluster_summary.xlsx
+
+=== Random Forest Train/Test Split ===
+Train shape: (24000, 23), Train target shape: (24000,)
+Test shape: (6000, 23), Test target shape: (6000,)
+
+=== Best Random Forest Parameters ===
+{'n_estimators': 218, 'max_depth': 15, 'min_samples_split': 6, 'min_samples_leaf': 1}
+Best Cross-Validated Accuracy: 0.9892
+
+Random Forest model trained successfully.
+
+Random Forest Test Accuracy: 0.9845
+
+Classification Report (Test):
+              precision    recall  f1-score   support
+
+    Low Risk       0.99      0.97      0.98      2391
+   High Risk       0.97      0.99      0.98      1546
+ Medium Risk       0.98      0.99      0.99      2063
+
+    accuracy                           0.98      6000
+   macro avg       0.98      0.99      0.98      6000
+weighted avg       0.98      0.98      0.98      6000
+
+Train Accuracy: 0.9993
+Test Accuracy: 0.9845
+
+Random Forest 5-Fold Cross-Validation Scores:
+[0.98791667 0.986875   0.99166667 0.98916667 0.990625  ]
+Cross-Validation Mean: 0.9892
+
+=== Random Forest Threshold Comparison - High Risk Cluster ===
+ Threshold  Precision  Recall  F1-Score   TP  FP  FN   TN                   Interpretation
+       0.3     0.9692  0.9974    0.9831 1542  49   4 4405       Max Detection (Aggressive)
+       0.5     0.9751  0.9890    0.9820 1529  39  17 4415               Standard (Default)
+       0.7     0.9799  0.9774    0.9786 1511  31  35 4423 Reduce Operations (Conservative)
+
+=== Random Forest Transformed Data ===
+X_train_rf shape: (24000, 31)
+Number of features: 31
+SHAP original shape: (2000, 31, 3)
+SHAP High Risk shape: (2000, 31)
+
+=== SHAP Feature Importance - Random Forest High Risk Class ===
+                       feature  importance
+                    ord__PAY_3      0.0817
+                    ord__PAY_2      0.0757
+                    ord__PAY_0      0.0707
+                    ord__PAY_4      0.0430
+                    ord__PAY_6      0.0408
+                    ord__PAY_5      0.0307
+                 num__PAY_AMT2      0.0221
+                 num__PAY_AMT1      0.0211
+                 num__PAY_AMT3      0.0121
+                 num__PAY_AMT4      0.0085
+                num__BILL_AMT2      0.0082
+                num__BILL_AMT5      0.0071
+                 num__PAY_AMT5      0.0069
+                num__BILL_AMT3      0.0057
+                num__BILL_AMT4      0.0056
+                num__BILL_AMT6      0.0052
+                num__LIMIT_BAL      0.0047
+                num__BILL_AMT1      0.0041
+                 num__PAY_AMT6      0.0016
+                      num__AGE      0.0007
+    cat__EDUCATION_High School      0.0003
+cat__EDUCATION_Graduate School      0.0003
+               cat__SEX_Female      0.0002
+                 cat__SEX_Male      0.0002
+         cat__MARRIAGE_Married      0.0001
+
+=== SHAP Direction for Top 5 Random Forest Features ===
+   feature  value_shap_correlation                                            direction
+ord__PAY_3                  0.8085 Higher values increase High Risk cluster probability
+ord__PAY_2                  0.7999 Higher values increase High Risk cluster probability
+ord__PAY_0                  0.5840 Higher values increase High Risk cluster probability
+ord__PAY_4                  0.6961 Higher values increase High Risk cluster probability
+ord__PAY_6                  0.6245 Higher values increase High Risk cluster probability
+
+=== RFE Feature Ranking - Random Forest ===
+ rank                        feature  ranking
+    1                     ord__PAY_3        1
+    2                     ord__PAY_2        2
+    3                     ord__PAY_4        3
+    4                     ord__PAY_6        4
+    5                     ord__PAY_0        5
+    6                     ord__PAY_5        6
+    7                 num__BILL_AMT5        7
+    8                  num__PAY_AMT2        8
+    9                 num__BILL_AMT2        9
+   10                  num__PAY_AMT1       10
+   11                 num__BILL_AMT3       11
+   12                  num__PAY_AMT4       12
+   13                 num__BILL_AMT4       13
+   14                  num__PAY_AMT3       14
+   15                 num__BILL_AMT1       15
+   16                  num__PAY_AMT5       16
+   17                 num__BILL_AMT6       17
+   18                  num__PAY_AMT6       18
+   19                 num__LIMIT_BAL       19
+   20                       num__AGE       20
+   21                  cat__SEX_Male       21
+   22                cat__SEX_Female       22
+   23 cat__EDUCATION_Graduate School       23
+   24     cat__EDUCATION_High School       24
+   25      cat__EDUCATION_University       25
+   26           cat__MARRIAGE_Single       26
+   27          cat__MARRIAGE_Married       27
+   28           cat__MARRIAGE_Others       28
+   29         cat__EDUCATION_Unknown       29
+   30          cat__EDUCATION_Others       30
+   31          cat__MARRIAGE_Unknown       31
+
+=== Logistic Risk Group Summary - Test ===
+risk_group  customer_count  mean_predicted_probability  observed_default_rate
+       Low            2920                      0.1040                 0.1171
+    Medium            1895                      0.2238                 0.1842
+      High            1185                      0.5079                 0.5367
+risk_groups_logistic.csv saved!
+logistic_risk_summary_test.csv saved!
+logistic_risk_thresholds.csv saved!
+risk_groups_rf_cluster.csv saved!

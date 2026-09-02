@@ -1,0 +1,3 @@
+boundary,threshold,validation_rule
+Low/Medium,0.16671674227242497,50th percentile of validation probability
+Medium/High,0.3253431203708288,80th percentile of validation probability
