@@ -1,0 +1,25 @@
+# Core data processing and scientific computing
+numpy>=2.1,<2.3
+pandas>=2.2,<3.0
+scipy>=1.14,<2.0
+
+# Visualization
+matplotlib>=3.9,<4.0
+seaborn>=0.13,<1.0
+plotly>=5.24,<7.0
+PySide6>=6.8,<7.0
+
+# Machine learning and preprocessing
+scikit-learn>=1.6,<2.0
+imbalanced-learn>=0.13,<1.0
+feature-engine>=1.8,<2.0
+
+# Optimization, dimensionality reduction, and explainability
+optuna>=4.0,<5.0
+umap-learn>=0.5.7,<1.0
+shap>=0.47,<1.0
+
+# Excel and Word file support
+openpyxl>=3.1,<4.0
+xlrd>=2.0,<3.0
+python-docx>=1.1,<2.0
